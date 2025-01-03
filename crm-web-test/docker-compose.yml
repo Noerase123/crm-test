@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+
+  frontend:
+    container_name: frontend
+    build: ./
+    volumes:
+      - './:/app'
+      - '/app/node_modules'
+    ports:
+      - 3000:3000
+    stdin_open: true
+    environment:
+      - 'REACT_APP_BASE_URL=http://localhost/api'
+    command: npm start
